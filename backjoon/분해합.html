@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(input) {
+        const N = input;
+        let M = 0;
+
+        for (let i = 0; i < N; i++) {
+          let sum = 0;
+
+          let candidateValue = i;
+
+          let value = candidateValue.toString();
+
+          for (let j = 0; j < value.length; j++) {
+            sum += parseInt(value[j]);
+          }
+          sum += candidateValue;
+          if (sum == N) {
+            M = candidateValue;
+            break;
+          }
+        }
+        console.log(M);
+        return answer;
+      }
+
+      let input = 216;
+      console.log(solution(input));
+    </script>
+  </body>
+</html>
