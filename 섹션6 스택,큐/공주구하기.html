@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, k) {
+        let answer;
+        let arr = Array.from({ length: n }, (v, i) => i + 1);
+        while (arr.length) {
+          for (let i = 1; i < k; i++) arr.push(arr.shift()); //1,2제거해서 arr에 넣음
+          arr.shift();
+          if (arr.length === 1) answer = arr.shift();
+        }
+        return answer;
+      }
+
+      console.log(solution(8, 3));
+    </script>
+  </body>
+</html>
