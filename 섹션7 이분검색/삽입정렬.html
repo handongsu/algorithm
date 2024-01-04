@@ -6,15 +6,19 @@
   <body>
     <script>
       function solution(arr) {
-        let answer = [];
-        answer.push(arr[0]);
-        for (let i = 1; i < arr.length; i++) {
-          for (let j = 0; j < answer.length; j++) {
-            if (arr[i] < answer[j]) {
-              answer.splice(j, 0, arr[i]);
-              break;
-            }
+        let answer = arr;
+        for (let i = 0; i < arr.length; i++) {
+          let tmp = arr[i];
+          let j;
+          for (j = i - 1; j >= 0; j--) {
+            // 1 0 -1
+            //j가 0까지 돌고 j가 -1에서 끝남
+            if (arr[j] > tmp) {
+              //11 > 5,  7 > 5
+              arr[j + 1] = arr[j]; //7 , 11 , 11 ...  7,7,11 ...
+            } else break;
           }
+          arr[j + 1] = tmp; // arr[-1  + 1] = 5
         }
         return answer;
       }
